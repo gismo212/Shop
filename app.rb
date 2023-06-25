@@ -4,6 +4,11 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
+#1-добавить отзывы на страницу contacts
+#2-сделать список продуктов(бд) и заполнить ее
+#3-вывести список продуктов с помощью грид
+#4-добавить корзину и сделать возможность покупать (local.storage,js)
+
 set :database, {adapter: "sqlite3", database: "shop.db"}
 
 class Contact < ActiveRecord::Base
@@ -17,6 +22,7 @@ get '/contacts' do
 end
 
 post '/contacts' do
+	@c = Contact.create params[:contact]
 	erb :contacts
 end
 
