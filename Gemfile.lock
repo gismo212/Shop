@@ -42,6 +42,7 @@ GEM
     tilt (1.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    yaml (0.2.1)
 
 PLATFORMS
   ruby
@@ -54,6 +55,7 @@ DEPENDENCIES
   sinatra-activerecord
   sinatra-contrib
   sqlite3
+  yaml
 
 BUNDLED WITH
    2.4.13
