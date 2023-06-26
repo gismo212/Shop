@@ -5,7 +5,6 @@ require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
 #0 удалить сохрание по умолчанию в contacts?
-#1-добавить отзывы на страницу contacts
 #2-сделать список продуктов(бд) и заполнить ее
 #3-вывести список продуктов с помощью грид 
 #4-добавить корзину и сделать возможность покупать (local.storage,js)
@@ -18,6 +17,10 @@ class Contact < ActiveRecord::Base
 	validates :email, presence:  true
 	validates :message, presence:  true
 end
+
+class Product < ActiveRecord::Base
+end
+
 get '/' do
 	erb :home
 end
