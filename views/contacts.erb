@@ -12,15 +12,15 @@
 <form action="/contacts" METHOD="POST" role="form">
 
 <label> Name:</label>
-<input type="text" name="contact[name]" class="form-control" placeholder="You name" value="<%=@c.name %>">
+<input type="text" name="contact[name]" class="form-control" placeholder="You name" >
 
 <br />
 <label> Address:</label>
-<input type="text" name="contact[address]" class="form-control" placeholder="You address" value="<%=@c.address %>">
+<input type="text" name="contact[address]" class="form-control" placeholder="You address" >
 
 <br />
 <label> Email:</label>
-<input type="text" name="contact[email]" class="form-control" placeholder="You email" value="<%=@c.email %>">
+<input type="text" name="contact[email]" class="form-control" placeholder="You email" >
 
 <br />
 <label> Message:</label>
@@ -28,6 +28,16 @@
 </textarea>
 
 <br />
-<button type="submit" class="btn btn-primary">SUMBIT</button> 
+<button type="submit" class="btn btn-primary" onclick="con()">SUMBIT</button> 
 
 </form>
+
+
+<script>
+function con()
+{
+    alert('Спасибо за ваш отзыв!')
+
+}
+
+</script>
