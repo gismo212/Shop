@@ -28,7 +28,7 @@ end
 
 post '/contacts' do
 	@c = Contact.create params[:contact]
-	erb :contacts
+	redirect to '/review'
 end
 
 get '/about' do
@@ -37,4 +37,9 @@ end
 
 get '/product' do
 	erb :product
+end
+
+get '/review' do
+	@contacts = Contact.all
+	erb :review
 end

@@ -1,0 +1,12 @@
+<h2>all review </h2>
+
+
+<% @contacts.each do |c|%>
+    <p>
+        <%= c.name %>
+        <%= c.address %>
+        <%= c.email %>
+        <%= c.message %>
+    </p>
+
+<% end %>
