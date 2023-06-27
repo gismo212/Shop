@@ -5,12 +5,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
 		<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/j.css" rel="stylesheet">
+		<link href="/app.css" rel="stylesheet">
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	    <script src="/vendor/jquery-1.9.1.min.js"></script>
 	    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-	    <script src="/b.js"></script>
+	    <script src="/c.js"></script>
 	    
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -35,19 +35,18 @@
 			    <a class="navbar-brand" href="/">PizzaShop</a>
 			  </div>
 			  <div class="navbar-collapse collapse">
-			    <ul class="nav navbar-nav">
-					<li><a href="/product">Product</a></li>
-					<li><a href="/about">About us</a></li>
-					<li><a href="/contacts">Contacts</a></li>
+			  <ul class="nav navbar-nav">
+				<li><a href="/product">Product</a></li>
+				<li><a href="/about">About us</a></li>
+				<li><a href="/contacts">Contacts</a></li>
+		  	  </ul>
+ 				<ul class="nav navbar-nav navbar-right">
+			    	<li>
+			    		<form action="/cart" method="post">
+			    		<input id="orders_input" name="orders_input" type="hidden" />
+			    		<input id="orders_button" type="submit">
+			    	</form> </li>
 			    </ul>
-				<ul class=" nav navbar-nav navbar-right">
-					<li>
-						<form action = "/cart" method = "post">
-							<input name = "order" type="hidden">
-							<input  type = "button" id="orders_button" value ="Cart(...)">
-						</form
-					</li>
-				</ul>
 			  </div><!--/.nav-collapse -->
 			</nav>
 
@@ -57,13 +56,17 @@
 			      <% end %>
 			      <%= yield %>
 			</div>
+
 	</div>
 
-	<script>
-    $(function() {
-      update_orders_input();
-      update_orders_button();
-    });
-  </script>
+
+<script type="text/javascript">
+
+	$(function() {
+		update_orders_input();
+		update_orders_button();
+		
+	});
+</script>
   </body>
 </html>
