@@ -1,1 +1,31 @@
 <h1> Welcome to online shop </h1
+
+<h3>Product menu</h3>
+
+<p>
+<button class="btn btn-danger" onclick="alert('hello')">SUBMIT</button>
+</p>
+
+<br />
+<br />
+
+<div class="bong" col-md>
+    <% @product.each do |p| %> 
+        <div class="col-md-2">
+            <div>Product name:<%=p.title  %></div>
+            <div>Price:<%=p.price %>$</div>
+            <div><img src="<%= p.path_to_image %>" width="265", height="250"  /></div>
+            <div><button class="btn btn-primary" onclick="add_to_cart(<%=p.id%>)">Add to cart</button></div>
+            <br />
+        </div>
+    <% end %>
+</div>
+
+<script type="text/javascript">
+
+	$(function() {
+		update_orders_input();
+		update_orders_button();
+		
+	});
+</script>
