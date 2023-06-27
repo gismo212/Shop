@@ -4,10 +4,8 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
-#0 удалить сохрание по умолчанию в contacts?
-#2-сделать список продуктов(бд) и заполнить ее
-#3-вывести список продуктов с помощью грид 
-#4-добавить корзину и сделать возможность покупать (local.storage,js)
+
+#3-добавить корзину и сделать возможность покупать (local.storage,js)
 
 set :database, {adapter: "sqlite3", database: "shop.db"}
 
@@ -39,6 +37,7 @@ get '/about' do
 end
 
 get '/product' do
+	@product = Product.all
 	erb :product
 end
 

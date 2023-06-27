@@ -1,6 +1,13 @@
-# create_table :products do |c|
-#       c.text :title
-#       c.string :path_to_image
-#       c.decimal :price
+<h1>Products menu</h1>
 
-#       c.timestamps
+<div class="bong" col-md>
+    <% @product.each do |p| %> 
+        <div class="col-md-4">
+            <div>Product name:<%=p.title %></div>
+            <div>Price:<%=p.price %></div>
+            <div><img src="<%= p.path_to_image %>" width="265", height="250"  /></div>
+            <div><button class="btn btn-primary">Add to cart</button></div>
+        </div>
+    <% end %>
+
+</div>
