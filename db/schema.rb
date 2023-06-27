@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_101830) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_183533) do
   create_table "contacts", force: :cascade do |t|
     t.text "name"
     t.text "email"
     t.text "address"
     t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.text "orders_input"
+    t.text "name"
+    t.text "phone"
+    t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

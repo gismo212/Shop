@@ -48,8 +48,8 @@ function cart_get_orders()
 
   for (var i = 0; i < window.localStorage.length; i++)
   {
-    var key = window.localStorage.key(i); // получаем ключ
-    var value = window.localStorage.getItem(key); // получаем значение
+    var key = window.localStorage.key(i); 
+    var value = window.localStorage.getItem(key); 
 
     if(key.indexOf('product_') == 0)
     {
