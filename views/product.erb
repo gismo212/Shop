@@ -1,7 +1,7 @@
 <h3>Product menu</h3>
 
 <p>
-<button class="btn btn-danger" onclick="">SUBMIT</button>
+<button class="btn btn-danger" onclick="alert('hello')">SUBMIT</button>
 </p>
 
 <br />
@@ -11,9 +11,9 @@
     <% @product.each do |p| %> 
         <div class="col-md-2">
             <div>Product name:<%=p.title  %></div>
-            <div>Price:<%=p.price %></div>
+            <div>Price:<%=p.price %>$</div>
             <div><img src="<%= p.path_to_image %>" width="265", height="250"  /></div>
-            <div><button class="btn btn-primary">Add to cart</button></div>
+            <div><button class="btn btn-primary" onclick="add_to_cart()">Add to cart</button></div>
         </div>
     <% end %>
 </div>
