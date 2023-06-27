@@ -41,6 +41,10 @@ get '/product' do
 	erb :product
 end
 
+get '/cart' do
+	erb :cart
+end
+
 get '/review' do
 	@contacts = Contact.all
 	erb :review
