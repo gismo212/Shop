@@ -1,1 +1,10 @@
 <h1>Admin_panel</h2>
+
+<% @order.each do |o| %>
+    <p>
+        <%=o.name%>
+        <%=o.address%>
+        <%=o.phone%>
+    </p>
+
+<% end %>

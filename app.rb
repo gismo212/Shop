@@ -4,9 +4,6 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
-
-#3-добавить корзину и сделать возможность покупать (local.storage,js)
-
 set :database, {adapter: "sqlite3", database: "shop.db"}
 
 class Contact < ActiveRecord::Base
@@ -23,6 +20,7 @@ class Order < ActiveRecord::Base
 end
 
 get '/' do
+	@product = Product.all
 	erb :home
 end
 
@@ -39,73 +37,60 @@ get '/about' do
 	erb :about
 end
 
-get '/product' do
-	@product = Product.all
-	erb :product
+get '/review' do
+	@contacts = Contact.all
+	erb :review
 end
 
 post '/place_order' do
-	@order = Order.create params[:order]
+	@order = Order.create(params[:order])
 	erb :order_placed
 end
 
-
-get '/admin' do
-	@all = Order.order "created_at DESC"
-	erb :admin
-end
-
-post '/admin' do
-	erb :admin
-end
-
 post '/cart' do
-	# получаем список параметров и разбираем(parse) их
 	@orders_input = params[:orders_input]
-	@items = parse_orders_input @orders_input
+	@items = parse_orders_input(@orders_input)
 
-
-	# выводим сообщение о том что корзина пуста
-	if @items.length == 0
+	if @items.empty?
 		return erb :cart_is_empty
 	end
 
-	# выводим список продуктов  в корзине
 	@items.each do |item|
+		id = item[0].to_i
+		cnt = item[1].to_i
+		item[0] = Product.find(id)
+	end
 
-		item[0] = Product.find(item[0])
-	end 
-
-	#озвращаем представление по-умолчанию
 	erb :cart
 end
 
-def parse_orders_input orders_input
-
+def parse_orders_input(orders_input)
 	s1 = orders_input.split(/,/)
 
-	arr=[]
+	arr = []
 
 	s1.each do |x|
 		s2 = x.split(/\=/)
 
-		s3 = (s2[0]).split(/_/)	
+		next if s2.length != 2
 
+		s3 = s2[0].split(/_/)
+
+		next if s3.length != 2
 
 		id = s3[1]
-
 		cnt = s2[1]
-		
-		arr2 = [id,cnt]
 
-		arr.push arr2
+		arr2 = [id, cnt]
 
+		arr.push(arr2)
 	end
-	
+
 	return arr
 end
 
-get '/review' do
-	@contacts = Contact.all
-	erb :review
+
+get '/admin' do
+	@order = Order.all
+	erb:admin
 end
