@@ -13,8 +13,17 @@
             <div>Product name:<%=p.title  %></div>
             <div>Price:<%=p.price %>$</div>
             <div><img src="<%= p.path_to_image %>" width="265", height="250"  /></div>
-            <div><button class="btn btn-primary" >Add to cart</button></div>
+            <div><button class="btn btn-primary" onclick="add_to_cart(<%=p.id%>)">Add to cart</button></div>
             <br />
         </div>
     <% end %>
 </div>
+
+<script type="text/javascript">
+
+	$(function() {
+		update_orders_input();
+		update_orders_button();
+		
+	});
+</script>
